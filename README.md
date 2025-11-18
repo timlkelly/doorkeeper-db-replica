@@ -43,7 +43,7 @@ locally
 Doorkeeper is attempting to create a database record in `GET` request to
 `/oauth/authorize`. However, due to Rails' default [automatic database role
 switching][automatic-role-switch], the read role was selected and this request
-fails.
+fails with an `ActiveRecord::ReadOnlyError - Write query attempted while in readonly mode: INSERT INTO "oauth_access_grants"`.
 
 Here is a snippet of the relevant lines from the callstack.
 
